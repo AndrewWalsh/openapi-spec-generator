@@ -1,0 +1,84 @@
+{
+  "name": "@andrew_walsh/openapi-spec-generator",
+  "description": "Generate OpenAPI specifications from HTTP requests",
+  "author": {
+    "name": "Andrew Walsh",
+    "url": "https://github.com/AndrewWalsh/openapi-spec-generator"
+  },
+  "version": "1.0.1",
+  "type": "module",
+  "exports": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "license": "MIT",
+  "engines": {
+    "node": "^21.2.0",
+    "npm": "^10.2.3"
+  },
+  "volta": {
+    "node": "21.2.0",
+    "npm": "10.2.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run type:dts && npm run build:src",
+    "build:src": "tsx ./scripts/build.ts",
+    "clean": "rimraf build coverage",
+    "type:dts": "tsc --emitDeclarationOnly --project tsconfig.build.json",
+    "type:check": "tsc --noEmit",
+    "format": "prettier \"src/**/*.ts\" --write",
+    "format:check": "prettier \"src/**/*.ts\" --check",
+    "lint": "eslint src --ext .ts --fix",
+    "lint:check": "eslint src --ext .ts",
+    "test": "tsx --test src/**/*.test.ts",
+    "test:watch": "tsx --watch --test src/**/*.test.ts",
+    "test:coverage": "npm run clean && npm run build:src -- --tests && NODE_V8_COVERAGE=./coverage c8 -r html node --experimental-test-coverage --test build/**/*.test.js",
+    "cz": "cz",
+    "semantic-release": "semantic-release"
+  },
+  "dependencies": {
+    "cookie": "^0.6.0",
+    "decode-uri-component": "^0.4.1",
+    "fast-querystring": "^1.1.2",
+    "genson-js": "^0.0.8",
+    "json-stable-stringify": "^1.0.2",
+    "lodash": "^4.17.21",
+    "openapi3-ts": "^4.1.2",
+    "radix3": "^1.1.0",
+    "store2": "^2.14.2"
+  },
+  "devDependencies": {
+    "@ryansonshine/commitizen": "^4.2.8",
+    "@ryansonshine/cz-conventional-changelog": "^3.3.4",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^11.1.0",
+    "@semantic-release/github": "^9.2.4",
+    "@semantic-release/npm": "^11.0.1",
+    "@semantic-release/release-notes-generator": "^12.1.0",
+    "@seriousme/openapi-schema-validator": "^2.1.2",
+    "@types/cookie": "^0.5.4",
+    "@types/har-format": "^1.2.15",
+    "@types/json-stable-stringify": "^1.0.35",
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.9.0",
+    "@types/prompts": "^2.4.9",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "c8": "^8.0.1",
+    "esbuild": "^0.19.8",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "globby": "^13.2.2",
+    "prettier": "^3.1.0",
+    "rimraf": "^5.0.5",
+    "semantic-release": "^22.0.8",
+    "tsx": "^4.6.1",
+    "typescript": "^5.3.2",
+    "vitest": "^0.34.6"
+  }
+}
