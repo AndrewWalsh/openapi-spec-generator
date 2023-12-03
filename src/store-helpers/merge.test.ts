@@ -1,4 +1,4 @@
-import { cloneDeep } from "lodash";
+import { cloneDeep } from "lodash-es";
 import { expect, it } from "vitest";
 
 import postJson from "../__fixtures__/post-application-json.js";
@@ -86,10 +86,10 @@ it("sets mostRecentRequest and mostRecentResponse", () => {
   const result = setup(options);
   expect(
     result.methods["POST"]?.["200"]?.["request"]!["application/json"]
-      ?.mostRecent,
+      ?.mostRecent
   ).toEqual({ test: true });
   expect(
     result.methods["POST"]?.["200"]?.["response"]!["application/json"]
-      ?.mostRecent,
+      ?.mostRecent
   ).toEqual({ test: 1 });
 });

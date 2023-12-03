@@ -1,5 +1,5 @@
 import type { Entry } from "har-format";
-import { isEmpty } from "lodash";
+import { isEmpty } from "lodash-es";
 
 import { Leaf } from "../types.js";
 import { parseAuthHeaders } from "./authentication-headers.js";
@@ -11,7 +11,7 @@ export const getAuthType = (auth: string) => {
 };
 
 type DetermineAuthFromHAR = (
-  harRequest: Entry,
+  harRequest: Entry
 ) => Leaf["authentication"] | undefined;
 const determineAuthFromHAR: DetermineAuthFromHAR = (harRequest) => {
   const finalAuth: Leaf["authentication"] = {};

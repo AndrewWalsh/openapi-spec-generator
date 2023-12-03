@@ -1,5 +1,5 @@
 import { Validator } from "@seriousme/openapi-schema-validator";
-import { cloneDeep } from "lodash";
+import { cloneDeep } from "lodash-es";
 import { expect, it } from "vitest";
 
 import apikey from "./__fixtures__/apikey.js";

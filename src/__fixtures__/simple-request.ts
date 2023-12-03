@@ -1,5 +1,5 @@
 import type { Entry } from "har-format";
-import { cloneDeep } from "lodash";
+import { cloneDeep } from "lodash-es";
 
 const simpleBody = { test: "test" };
 const simpleURLHost = "www.example.com";

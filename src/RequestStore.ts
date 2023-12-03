@@ -1,6 +1,6 @@
 import type { Entry } from "har-format";
 import stringify from "json-stable-stringify";
-import { omit, unset } from "lodash";
+import { omit, unset } from "lodash-es";
 
 import leafMapToEndpoints from "./leafmap-to-endpoints.js";
 import {
@@ -70,7 +70,7 @@ export default class RequestStore {
   public endpoints(): Array<Endpoint> {
     const withoutDisabled = omit(
       this.leafMap,
-      Array.from(this.disabledHosts),
+      Array.from(this.disabledHosts)
     ) as Readonly<typeof this.leafMap>;
     return leafMapToEndpoints(withoutDisabled);
   }

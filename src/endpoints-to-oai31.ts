@@ -1,4 +1,4 @@
-import { isEmpty } from "lodash";
+import { isEmpty } from "lodash-es";
 import {
   OpenApiBuilder,
   OperationObject,
@@ -23,7 +23,7 @@ import { AuthTypeString, Endpoint } from "./types.js";
 
 const endpointsToOAI31 = (
   endpoints: Array<Endpoint>,
-  options: Options = defaultOptions,
+  options: Options = defaultOptions
 ): OpenApiBuilder => {
   const builder = createBuilderAndDocRoot(endpoints);
   const uniqueHosts = new Set<string>();
@@ -48,14 +48,14 @@ const endpointsToOAI31 = (
       for (const [statusCode, schema] of Object.entries(statusCodes)) {
         const methodLower = method.toLowerCase();
         const queryParameterObjects = createQueryParameterTypes(
-          endpoint.data.methods[method]![statusCode]!.queryParameters,
+          endpoint.data.methods[method]![statusCode]!.queryParameters
         );
         const requestBody = createRequestTypes(schema.request, options);
         const responses = createResponseTypes(
           schema.response,
           schema.responseHeaders,
           statusCode,
-          options,
+          options
         );
         const security: SecurityRequirementObject[] = [];
         if (!isEmpty(endpoint.data.authentication)) {

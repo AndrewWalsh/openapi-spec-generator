@@ -1,4 +1,4 @@
-import { unset } from "lodash";
+import { unset } from "lodash-es";
 
 import { pathToArray } from "../helpers.js";
 import { Leaf, RouterMap } from "../types.js";
