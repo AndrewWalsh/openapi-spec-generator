@@ -42,10 +42,8 @@
     "decode-uri-component": "^0.4.1",
     "fast-querystring": "^1.1.2",
     "genson-js": "^0.0.8",
-    "i": "^0.3.7",
     "json-stable-stringify": "^1.0.2",
     "lodash-es": "^4.17.21",
-    "npm": "^10.2.4",
     "openapi3-ts": "^4.1.2",
     "radix3": "^1.1.0",
     "store2": "^2.14.2"
