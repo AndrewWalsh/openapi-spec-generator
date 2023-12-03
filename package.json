@@ -5,7 +5,7 @@
     "name": "Andrew Walsh",
     "url": "https://github.com/AndrewWalsh/openapi-spec-generator"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "exports": "./build/index.js",
   "types": "./build/index.d.ts",
