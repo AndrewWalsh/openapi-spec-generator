@@ -12,7 +12,7 @@ async function buildFile(filePath: string) {
     target: "node21",
     format: "esm",
     nodePaths: [srcPath],
-    sourcemap: true,
+    sourcemap: false,
     external: [],
     entryPoints: [path.join(srcPath, filePath)],
     outdir: path.join(buildPath, path.dirname(filePath)),
@@ -23,7 +23,7 @@ async function build({ includeTests = false }: { includeTests?: boolean }) {
   const filesStream = globbyStream("**/*.ts", {
     cwd: srcPath,
     onlyFiles: true,
-    ignore: includeTests ? [] : ["**/*.test.ts"],
+    ignore: includeTests ? [] : ["**/*.test.ts", "**/__fixtures__/*"],
   });
 
   for await (const filePath of filesStream) {
